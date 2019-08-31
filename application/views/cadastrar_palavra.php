@@ -16,20 +16,21 @@
 
   <title>Arqlibras!</title>
   <style type="text/css">
-*{
+* {
   margin: 0;
   padding: 0;
   }
 
 body {
   background: #2E3740;
+  background-color: #081921;
   color: #435160;
   font-family: "Open Sans", sans-serif;
 }
 
 h2 {
   color: #6D7781;
-  font-family: "Sofia", cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-weight: bold;
   font-size: 3.6em;
@@ -42,24 +43,29 @@ a {
   text-decoration: none;
 }
 
-.cadastrar_palavras {
+#formulario {
+  text-align: center;
+      
+       
+}
+.cadastrar_palavras{
   width: 350px;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  margin-left: -175px;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      margin-left: -175px;
 }
 
 input[type="text"], input[type="password"] {
-  width: 350px;
-  padding: 20px 0px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #435160;
-  outline: none;
-  color: #6D7781;
-  font-size: 16px;
-}
+      width: 350px;
+      padding: 20px 0px;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #435160;
+      outline: none;
+      color: #6D7781;
+      font-size: 18px;
+    }
 input[type=checkbox] {
   display: none;
 }
@@ -82,19 +88,20 @@ label {
   background: #435160;
 }
 
-input[type="submit"] {
-  background: #1FCE6D;
-  border: 0;
-  width: 350px;
-  height: 40px;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-}
-input[type="submit"]:hover {
-  background: #16aa56;
+.btn_padrao{
+      background: #578cff;
+      border: 0;
+      width: 50%;
+      height: 40px;
+      border-radius: 3px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      margin-top:8px;
+    }
+.btn_padrao:hover {
+  background: #5c6b8a;
   animation-name: shake;
 }
 
@@ -123,7 +130,7 @@ input[type="submit"]:hover {
 
 ::-webkit-input-placeholder {
   color: #435160;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .animated {
@@ -141,8 +148,9 @@ input[type="submit"]:hover {
   20%, 40%, 60%, 80% {
     transform: translateX(10px);
   }
-  {
-    .textarea{
+}
+  
+.texta{
   width: 350px;
   padding: 20px 0px;
   background: transparent;
@@ -151,18 +159,26 @@ input[type="submit"]:hover {
   outline: none;
   color: #6D7781;
   font-size: 16px;
-  }
-}
+  
 
+}
+.container {
+      
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
   
-  
+
   </style>
 
 </head>
 <body>
+     
   <div id="header">
     <?php $this->load->view('navbar.php') ?>
   </div>
+  <div class="container">
   <?php 
   echo validation_errors('<p>','</p>');
   if($this->session->flashdata('atualizacao_positivo'))
@@ -178,14 +194,15 @@ input[type="submit"]:hover {
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
 <div class='cadastrar_palavras'>
   <h2>Cadastrar Palavras</h2>
+  <form id='formulario'action="cadastrar" method="post">
   <fieldset>
         <input placeholder="Informe a palavra..." type="text" name="palavra" tabindex="1" required autofocus>
       </fieldset>
       <fieldset>
-        <textarea  placeholder="Informe a descrição da palavra...." name="descricao" tabindex="2" required></textarea>
+        <textarea class="texta"  placeholder="Informe a descrição da palavra...." name="descricao" tabindex="2" required></textarea>
       </fieldset>
       <fieldset>
-        <textarea placeholder="Informe o exemplo em uma frase...." name="exemplo" tabindex="3" required></textarea>
+        <textarea class="texta" placeholder="Informe o exemplo em uma frase...." name="exemplo" tabindex="3" required></textarea>
       </fieldset>
       <fieldset>
         <input placeholder="Informe a chave do vídeo no youtube..." type="text" name="yt_id" tabindex="4" required autofocus>
@@ -194,9 +211,9 @@ input[type="submit"]:hover {
         <input placeholder="Informe o nome do arquivo da imagem..." type="text" name="img" tabindex="5" required autofocus>
       </fieldset>
       <fieldset>
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
-      </fieldset>
- 
+      <p> <button class="btn_padrao" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
+      </p> </fieldset>
+      </form>
 
 
 
